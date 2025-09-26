@@ -44,7 +44,7 @@ Strong tooling (DBeaver, pgAdmin, ORM support like SQLAlchemy).
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/bookit-api.git
+git clone https://github.com/yourusername/Book-IT-API.git
 cd bookit-api
 ```
 
@@ -61,20 +61,27 @@ REFRESH_TOKEN_EXPIRE_DAYS=7
 ENVIRONMENT=development
 LOG_LEVEL=INFO
 ```
+### 3. Activate venv
 
-### 3. Install Dependencies
+```sh
+py -m venv venv
+
+venv\Scripts\activate
+```
+
+### 4. Install Dependencies
 
 ```sh
 pip install -r requirements.txt
 ```
 
-### 4. Run Database Migrations
+### 5. Run Database Migrations
 
 ```sh
 alembic upgrade head
 ```
 
-### 5. Start the API
+### 6. Start the API
 
 ```sh
 uvicorn app.main:app --reload
@@ -83,18 +90,6 @@ uvicorn app.main:app --reload
 Visit [http://localhost:8000/docs](http://localhost:8000/docs) for the interactive API docs.
 
 ---
-
-## Docker Usage
-
-To run the API and database with Docker Compose:
-
-```sh
-docker compose up --build
-```
-
----
-
-## Project Structure
 
 ## Project Structure
 
@@ -111,6 +106,7 @@ alembic/
   ├── env.py
 requirements.txt
 .env
+
 ```
 
 ---
