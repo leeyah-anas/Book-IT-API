@@ -11,7 +11,7 @@ class UserRepository:
         user = User(
             name=user_data.name,
             email=user_data.email,
-            password_hash=password_hash
+            password_hash=password_hash,
             role=user_data.role
         )
         self.db.add(user)
