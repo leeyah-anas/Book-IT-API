@@ -1,5 +1,5 @@
 from pydantic import BaseModel, validator
-from datetime import datetime
+from datetime import datetime, timezone
 from ..models.booking import BookingStatus
 
 class BookingBase(BaseModel):
@@ -9,7 +9,7 @@ class BookingBase(BaseModel):
 class BookingCreate(BookingBase):
     @validator('start_time')
     def start_time_must_be_future(cls, v):
-        if v <= datetime.utcnow():
+        if v <= datetime.now(timezone.utc):
             raise ValueError('Start time must be in the future')
         return v
 
